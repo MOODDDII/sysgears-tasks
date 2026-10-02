@@ -53,7 +53,7 @@ console.log(get_sorted(input_data, 'rating', true));
 
 ## 3) Meteor position calculation
 
-The `find_meteor` function in `find_meteor.js` generates a random asteroid position and estimates its location in relation to four known zont coordinates.
+The `find_meteor` function in `index.js` generates a random asteroid position and estimates its location in relation to four known zont coordinates.
 
 ### Example
 
@@ -81,7 +81,6 @@ Use Node.js to run each file:
 
 ```bash
 node index.js
-node find_meteor.js
 ```
 
 The project is a small collection of JavaScript exercises and utility functions demonstrating unit conversion, sorting, and 3D geometry calculations.
