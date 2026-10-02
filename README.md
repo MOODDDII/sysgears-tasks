@@ -1,17 +1,14 @@
-# Task Description
+# SysGears Tasks
 
-This project contains two JavaScript utility functions:
+This workspace contains JavaScript utilities for three different problems:
 
-## 1) convert_length(type, num, to)
+1. length conversion
+2. sorting objects in an array
+3. finding a meteor position in 3D space
 
-The `convert_length` function converts a value from one unit of length to another.
+## 1) Length conversion
 
-### How it works
-
-- It uses a `meter_based_values` object that stores conversion factors for common length units.
-- It converts the input value into meters.
-- Then it converts the value from meters to the target unit.
-- Finally, it returns a formatted string.
+The `convert_length` function in `index.js` converts a value from one unit to another.
 
 ### Example
 
@@ -25,46 +22,66 @@ Output:
 35 km = 21.7 mi
 ```
 
-### Notes
+### Behavior
 
-- The conversion is based on metric meters.
-- The result is rounded to 1 decimal place using `toFixed(1)`.
-- The function returns a string, not a number.
+- It uses a table of conversion factors to meters.
+- It converts the original value into meters.
+- It converts the result into the target unit.
+- It returns a formatted string with one decimal place.
 
 ---
 
-## 2) get_sorted(data, key, reversed)
+## 2) Sorting data
 
-The `get_sorted` function sorts an array of objects by a selected property.
-
-### How it works
-
-- It creates a copy of the array using `[...data]`.
-- It sorts the data based on the provided `key`.
-- If the property value is numeric, it subtracts values.
-- If the property value is a string, it compares them using `localeCompare`.
-- If `reversed` is `true`, the sorted result is reversed.
+The `get_sorted` function in `index.js` sorts an array of objects by any selected key.
 
 ### Example
 
 ```javascript
-console.log(get_sorted(input_data, "name"));
-console.log(get_sorted(input_data, "rating", true));
+console.log(get_sorted(input_data, 'name'));
+console.log(get_sorted(input_data, 'rating', true));
 ```
 
-### Notes
+### Behavior
 
-- It works with arrays of objects.
-- It preserves the original array and sorts a copy instead of changing the original.
-- The function can sort alphabetically or numerically depending on the field type.
+- Creates a shallow copy of the input array.
+- Sorts by the requested key.
+- Handles numeric values and string values correctly.
+- Supports reverse order with the `reversed` flag.
 
 ---
 
-## Summary
+## 3) Meteor position calculation
 
-These functions are useful for:
+The `find_meteor` function in `find_meteor.js` generates a random asteroid position and estimates its location in relation to four known zont coordinates.
 
-- converting values between different length units
-- sorting user or data records by name, rating, or other fields
+### Example
 
-They are simple examples of reusable JavaScript utility logic.
+```javascript
+console.log(find_meteor());
+```
+
+### Returned structure
+
+```javascript
+{
+  meteor_position: [x, y, z],
+  zonts_coordinates: [[0, 0, 0], [100, 0, 0], [0, 100, 0], [0, 0, 100]],
+  zonts_qt: 4
+}
+```
+
+This script uses 3D distance calculations and a coordinate geometry formula to estimate the meteor's position.
+
+---
+
+## Running the project
+
+Use Node.js to run each file:
+
+```bash
+node index.js
+node find_meteor.js
+```
+
+The project is a small collection of JavaScript exercises and utility functions demonstrating unit conversion, sorting, and 3D geometry calculations.
