@@ -95,3 +95,50 @@ function find_meteor() {
 }
 
 console.log(find_meteor(asteroid));
+
+// 5 task
+function count_nines(n) {
+  let count = 0;
+
+  for (let i = 0; i <= n; i++) {
+    const digit = i.toString();
+
+    for (const char of digit) {
+      if (char === "9") {
+        count++;
+      }
+    }
+  }
+
+  return count;
+}
+
+console.log(count_nines(20));
+
+// 6 task
+function getPermutation(items, k) {
+  const circle = [...items];
+  const result = [];
+  let position = 0;
+
+  while (circle.length > 0) {
+    position = (position + k - 1) % circle.length;
+    result.push(circle[position]);
+    circle.splice(position, 1);
+  }
+
+  return result;
+}
+
+console.log(getPermutation([1, 2, 3, 6, 9, 12, 40], 3));
+
+// 7 task
+function rgb_to_hex(r, g, b) {
+  const R = Math.min(255, Math.max(0, r)).toString(16).padStart(2, "0").toUpperCase();
+  const G = Math.min(255, Math.max(0, g)).toString(16).padStart(2, "0").toUpperCase();
+  const B = Math.min(255, Math.max(0, b)).toString(16).padStart(2, "0").toUpperCase();
+
+  return `${R}${G}${B}`;
+}
+
+console.log(rgb_to_hex(255, 0, 0));
